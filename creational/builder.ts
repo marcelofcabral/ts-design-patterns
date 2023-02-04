@@ -31,8 +31,8 @@ class PizzaMaker implements Cook {
   name: string;
   private result: Pizza; // the resulting product after applying all the build steps.
 
-  constructor(name: string) {
-    this.name = name;
+  constructor(name?: string) {
+    this.name = name || "A pizza maker";
     this.result = new Pizza();
   }
 
@@ -71,8 +71,8 @@ class SandwichMaker implements Cook {
   name: string;
   private result: Sandwich;
 
-  constructor(name: string) {
-    this.name = name;
+  constructor(name?: string) {
+    this.name = name || "A sandwich maker";
     this.result = new Sandwich();
   }
 
@@ -172,7 +172,7 @@ class KitchenManager {
       );
 
       if (!oneOfOurCooks) {
-        this.activeCook = new RequiredCookType("George");
+        this.activeCook = new RequiredCookType();
         this.managedCooks.push(this.activeCook);
       } else {
         this.activeCook = oneOfOurCooks;
